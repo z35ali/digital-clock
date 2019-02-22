@@ -23,6 +23,14 @@ class App extends Component {
 
         this.setState({ timerStarted: true, timerStopped: false });
         if (this.state.timerStarted) {
+          if (this.state.seconds >= 60) {
+            this.setState((prevState) => ({ seconds: 0, minutes: prevState.minutes + 1 }));
+
+          }
+          if (this.state.minutes >= 60) {
+            this.setState((prevState) => ({ seconds: 0, minutes: 0, hours: prevState.hours + 1 }));
+
+          }
           this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
         }
 

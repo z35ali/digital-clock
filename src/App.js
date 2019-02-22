@@ -56,7 +56,7 @@ class App extends Component {
       <div className="container">
 
         <div className="timer-container">
-          <h2 className="text-center">Timer with React</h2>
+          <h2 className="text-center">React StopWatch</h2>
           <div className="current-timer">
             {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
           </div>

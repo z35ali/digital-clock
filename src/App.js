@@ -14,6 +14,24 @@ class App extends Component {
       captures: []
     }
   }
+
+  handleTimerStart(e) {
+    e.preventDefault(); //prevent button from submitting to new page
+
+    if (this.state.timerStopped) {
+      setInterval(() => {
+
+        this.setState({ timerStarted: true, timerStopped: false });
+        if (this.state.timerStarted) {
+          this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
+        }
+
+      }, 1000);
+
+    }
+  }
+
+
   render() {
     return (
       <div className="container">
@@ -23,7 +41,7 @@ class App extends Component {
             {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
           </div>
           <div className="timer-controls">
-            <button className="btn btn-success">
+            <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>
               Start Timer
             </button>
             <button className="btn btn-alert">Stop Timer</button>

@@ -45,11 +45,18 @@ class App extends Component {
     clearInterval(this.timer);
   }
 
+  handleTimerReset(e) {
+    e.preventDefault();
+    this.setState({ timerStarted: false, timerStopped: true, seconds: 0, minutes: 0, hours: 0 });
+    clearInterval(this.timer);
+
+  }
   render() {
     return (
       <div className="container">
-        <h2 className="text-center">Timer with React</h2>
+
         <div className="timer-container">
+          <h2 className="text-center">Timer with React</h2>
           <div className="current-timer">
             {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
           </div>
@@ -57,9 +64,9 @@ class App extends Component {
             <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>
               Start Timer
             </button>
-            <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
-            <button className="btn btn-info">Capture Time</button>
-            <button className="btn btn-danger">Reset Timer</button>
+            <button className="btn btn-info" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
+            <button className="btn btn-warning">Capture Time</button>
+            <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset Timer</button>
 
 
           </div>

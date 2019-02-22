@@ -19,7 +19,7 @@ class App extends Component {
     e.preventDefault(); //prevent button from submitting to new page
 
     if (this.state.timerStopped) {
-      setInterval(() => {
+      this.timer = setInterval(() => {
 
         this.setState({ timerStarted: true, timerStopped: false });
         if (this.state.timerStarted) {
@@ -39,6 +39,11 @@ class App extends Component {
     }
   }
 
+  handleTimerStop(e) {
+    e.preventDefault();
+    this.setState({ timerStarted: false, timerStopped: true });
+    clearInterval(this.timer);
+  }
 
   render() {
     return (
@@ -52,7 +57,7 @@ class App extends Component {
             <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>
               Start Timer
             </button>
-            <button className="btn btn-alert">Stop Timer</button>
+            <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
             <button className="btn btn-info">Capture Time</button>
             <button className="btn btn-danger">Reset Timer</button>
 

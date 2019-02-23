@@ -28,10 +28,10 @@ class App extends Component {
 
           }
           if (this.state.minutes >= 59) {
-            this.setState((prevState) => ({ seconds: -1, minutes: -1, hours: prevState.hours + 1 }));
+            this.setState((prevState) => ({ seconds: 0, minutes: -1, hours: prevState.hours + 1 }));
 
           }
-          this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
+          this.setState((prevState) => ({ minutes: prevState.minutes + 1 }));
         }
 
       }, 1000);

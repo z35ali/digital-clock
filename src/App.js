@@ -23,12 +23,12 @@ class App extends Component {
 
         this.setState({ timerStarted: true, timerStopped: false });
         if (this.state.timerStarted) {
-          if (this.state.seconds >= 60) {
-            this.setState((prevState) => ({ seconds: 0, minutes: prevState.minutes + 1 }));
+          if (this.state.seconds >= 59) {
+            this.setState((prevState) => ({ seconds: -1, minutes: prevState.minutes + 1 }));
 
           }
-          if (this.state.minutes >= 60) {
-            this.setState((prevState) => ({ seconds: 0, minutes: 0, hours: prevState.hours + 1 }));
+          if (this.state.minutes >= 59) {
+            this.setState((prevState) => ({ seconds: -1, minutes: -1, hours: prevState.hours + 1 }));
 
           }
           this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
@@ -51,25 +51,40 @@ class App extends Component {
     clearInterval(this.timer);
 
   }
+
+  handleTimerCapture(e) {
+    //new capture + prev captures in captures array
+    this.setState((prevState) => ({ captures: [...prevState.captures, this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds] }));
+  }
   render() {
     return (
-      <div className="container">
+      <div>
 
-        <div className="timer-container">
+        <div className="container">
+
           <h2 className="text-center">React StopWatch</h2>
-          <div className="current-timer">
-            {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
-          </div>
-          <div className="timer-controls">
-            <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>
-              Start Timer
+
+          <div className="timer-container">
+            <div className="current-timer">
+              {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
+            </div>
+            <div className="timer-controls">
+              <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>
+                Start Timer
             </button>
-            <button className="btn btn-info" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
-            <button className="btn btn-warning">Capture Time</button>
-            <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset Timer</button>
+              <button className="btn btn-info" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
+              <button className="btn btn-warning" onClick={this.handleTimerCapture.bind(this)}>Capture Time</button>
+              <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset Timer</button>
 
 
+            </div>
           </div>
+        </div>
+        <div className="timer-captures">
+          {this.state.captures.map((time, index) => {
+            return <code>{"Capture " + (index + 1) + " -> " + time}</code>
+          })}
+
         </div>
       </div>
     );

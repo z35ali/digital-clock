@@ -31,7 +31,7 @@ class App extends Component {
             this.setState((prevState) => ({ seconds: 0, minutes: -1, hours: prevState.hours + 1 }));
 
           }
-          this.setState((prevState) => ({ minutes: prevState.minutes + 1 }));
+          this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
         }
 
       }, 1000);

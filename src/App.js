@@ -56,6 +56,12 @@ class App extends Component {
     //new capture + prev captures in captures array
     this.setState((prevState) => ({ captures: [...prevState.captures, this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds] }));
   }
+
+  handleCaptureReset(e) {
+    e.preventDefault();
+    this.setState({ captures: [] });
+
+  }
   render() {
     return (
       <div>
@@ -75,7 +81,7 @@ class App extends Component {
               <button className="btn btn-info" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
               <button className="btn btn-warning" onClick={this.handleTimerCapture.bind(this)}>Capture Time</button>
               <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset Timer</button>
-
+              <button className="btn btn-info" onClick={this.handleCaptureReset.bind(this)}>Clear Captures</button>
 
             </div>
           </div>

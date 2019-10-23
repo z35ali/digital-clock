@@ -1,0 +1,15 @@
+{
+  "main.css": "/digital-clock/static/css/main.9f1a194d.chunk.css",
+  "main.js": "/digital-clock/static/js/main.cb5c2cf1.chunk.js",
+  "main.js.map": "/digital-clock/static/js/main.cb5c2cf1.chunk.js.map",
+  "runtime~main.js": "/digital-clock/static/js/runtime~main.d4065ae2.js",
+  "runtime~main.js.map": "/digital-clock/static/js/runtime~main.d4065ae2.js.map",
+  "static/css/2.a4a6f837.chunk.css": "/digital-clock/static/css/2.a4a6f837.chunk.css",
+  "static/js/2.ec0d5387.chunk.js": "/digital-clock/static/js/2.ec0d5387.chunk.js",
+  "static/js/2.ec0d5387.chunk.js.map": "/digital-clock/static/js/2.ec0d5387.chunk.js.map",
+  "index.html": "/digital-clock/index.html",
+  "precache-manifest.316c0d5ccf334f6694ed0e5b27e211f0.js": "/digital-clock/precache-manifest.316c0d5ccf334f6694ed0e5b27e211f0.js",
+  "service-worker.js": "/digital-clock/service-worker.js",
+  "static/css/2.a4a6f837.chunk.css.map": "/digital-clock/static/css/2.a4a6f837.chunk.css.map",
+  "static/css/main.9f1a194d.chunk.css.map": "/digital-clock/static/css/main.9f1a194d.chunk.css.map"
+}
